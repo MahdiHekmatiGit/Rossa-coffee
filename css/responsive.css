@@ -1,0 +1,50 @@
+@media screen and (min-width : 576px) {
+    
+}
+
+@media screen and (min-width : 992px) {
+    
+}
+
+@media screen and (min-width : 1200px) {
+    
+}
+
+
+
+@media screen and (max-width : 1500px){
+    .menu_part{
+        flex: 0 0 90%;
+    }
+    .section_menu{
+        flex-wrap: wrap;
+        gap: 3rem;
+    }
+}
+
+
+@media screen and (max-width : 568px){
+    .menu_part{
+        font-size: 2rem !important;
+    }
+
+    .section_aboutUs{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+
+    .customers_comment_item{
+        max-width: 80vw;
+    }
+
+    .header_contactUs_form_item{
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .footer_contactUs_form{
+        justify-content: center;
+    }
+
+}

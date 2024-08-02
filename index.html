@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my Site</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/button_style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body onload="bodyLoaded(event , true)">
+
+
+    <!-- main navigation -->
+    <div class="navBar">
+        <ul class="main_navigation">
+            <li class="btn btn_style1 d-none d-md-block" onclick="openBasket()">basket</li>
+            <li class="btn btn_style1 d-none d-md-block"><a href="#menu_section">menue</a></li>
+            <li>
+                <img src="images/rossa coffee logo mokup 1 invert.jpg" class="main_logo">
+            </li>
+            <li class="btn btn_style1 d-none d-md-block"><a href="contactUs.html">contack us</a></li>
+            <li class="btn btn_style1 d-none d-md-block"><a href="#aboutUs_index">about us</a></li>
+        </ul>
+    </div>
+
+
+    <!-- hidden navigatino -->
+    <button class="open_hidden_nav_btn d-block d-md-none" onclick="openHiddenNav(event)" style="font-weight: bold;">
+        >
+    </button>
+    <div class="hidden_navigation_container">
+        <ul class="hidden_navigation">
+            <li><a href=""><i class="bi bi-house"></i></a></li>
+            <li onclick="openBasket()"><i class="bi bi-cart-fill"></i></li>
+            <li><a href="#aboutUs_index"><i class="bi bi-info-circle-fill"></i></a></li>
+            <li><a href="contactUs.html"><i class="bi bi-chat-left-fill"></i></a></li>
+            <li onclick="closeHiddenNav(event)"><i class="bi bi-x-circle-fill"></i></li>
+        </ul>
+    </div>
+
+
+    <!-- header -->
+    <header class="index_header">
+        <img src="images/RCPNG.png" class="header_bg_type">
+    </header>
+
+
+
+    <!-- section menu -->
+    <div class="section_title" id="menu_section">Menu</div>
+    <div class="section">
+        <div class="container section_menu">
+            <div class="menu_part" onclick="window.open('hotDrinks.html' , '_self')">
+                <div>
+                    <img src="images/[fpdl.in]_cup-coffee-with-heart-drawn-foam_1286-70_full.jpg" alt=""
+                        class="image_fit">
+                </div>
+                hot drink
+            </div>
+            <div class="menu_part" onclick="window.open('iceDrinks.html' , '_self')">
+                <div>
+                    <img src="images/pr2.jpg" alt="" class="image_fit">
+                </div>
+                ice drink
+            </div>
+            <div class="menu_part">
+                <div>
+                    <img src="images/brownies.jpg" alt="" class="image_fit">
+                </div>
+                cakes
+            </div>
+        </div>
+    </div>
+
+
+    <!-- section about us -->
+    <div class="secound_color" id="aboutUs_index">
+        <div class="section_title" id="aboutUs_section">About us</div>
+        <div class="section">
+            <div class="container section_aboutUs">
+                <div class="section_aboutUs_image">
+                    <img src="images/rossa coffee logo mokup 1.jpg" class="image_fit">
+                </div>
+                <div class="section_aboutUs_content">
+                    <p>
+                        Rossaa Coffee is a mental idea to present projects in the fields of logo design, business card,
+                        brochure and
+                        website design and development, which was done by me (Mahdi Hekmati), zero to one hundred.
+                        Maybe in the future, a coffee shop with this name will be created, and all its needs, such as
+                        the
+                        mentioned items, are ready for operation.
+                    </p>
+                    <button class="btn button_style3"> see gallery </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- customers comments -->
+    <div class="section_title" id="customers_section">
+        Customers comments
+        <p>Viewing customer comments is as enjoyable for us as tasting a delicious bitter coffee!</p>
+    </div>
+    <div class="section">
+        <div class="container section_customers">
+            <!-- item -->
+            <!-- <div class="customers_comment_item">
+                <div class="comment_item_image_container">
+                    <img src="images/pers1.jpg" class="image_fit comment_item_image">
+                </div>
+                <div class="comment_item_text_content">
+                    <h2 class="comment_item_userName">name of user</h2>
+                    <p class="comment_item_comment">
+                        here is the comment of the users 
+                    </p>
+                </div>
+            </div> -->
+        </div>
+        <a href="contactUs.html" class="button_style4">leave your note for us</a>
+    </div>
+
+
+    <!-- <div class="order_page_container">
+        <div class="order_page">
+            <h3>Final step</h3>
+            <div class="order_page_part">
+                <label for="order_page_f_name">first name</label>
+                <input type="text" id="order_page_f_name" placeholder="your F name" class="order_input_data" required>
+            </div>
+            <div class="order_page_part">
+                <label for="order_page_l_name">last name</label>
+                <input type="text" id="order_page_l_name" placeholder="your L name" class="order_input_data" required>
+            </div>
+            <div class="order_page_part">
+                <label for="order_page_phone_number">phone number</label>
+                <input type="text" id="order_page_phone_number" placeholder="your Phone number" class="order_input_data" required>
+            </div>
+            <div class="order_page_part">
+                <label for="order_page_phone_number">table number</label>
+                <select name="number_of_table" id="table_number">
+                    <optgroup label="number of your table">
+                        <option value="1">table 1</option>
+                        <option value="2">table 2</option>
+                        <option value="3">table 3</option>
+                        <option value="4">table 4</option>
+                        <option value="5">table 5</option>
+                        <option value="6">table 6</option>
+                        <option value="7">table 7</option>
+                        <option value="8">table 8</option>
+                        <option value="9">table 9</option>
+                        <option value="10">table 10</option>
+                    </optgroup>
+                </select>
+            </div>
+            <h5>here will be paying portable</h5>
+            <div class="order_page_buttons">
+                <button class="order_page_goOut_button button_style3" onclick="closeFinalOrderPage()">back</button>
+                <button class="order_page_order_button button_style3" disabled onclick="finalOrder()">order</button>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+    <!-- basket (will add with js)-->
+    <!-- footer (will add with js)-->
+
+    <!-- javascript files -->
+    <script src="javaScripts/bootstrap.bundle.min.js"></script>
+    
+    <script src="javaScripts/alertDisign.js"></script>
+
+    <script src="javaScripts/products.js"></script>
+
+    <script src="javaScripts/comments.js"></script>
+    <script src="javaScripts/comment.app.js"></script>
+
+    <script src="javaScripts/form.app.js"></script>
+
+    <script src="javaScripts/mainJs.js"></script>
+
+    <script src="javaScripts/basket.js"></script>
+    <!-- end body -->
+
+</body>
+
+</html>

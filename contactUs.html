@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact us</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/button_style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="contactUsBody">
+
+    <form action="" method="" name="contactUsForm" class="container form_container">
+        <!-- top of form: -->
+        <div class="header_contactUs_form">
+            <i class="bi bi-house-fill header_contactUs_form_item" onclick="window.location.replace('index.html')"></i>
+            <div class="header_contactUs_form_item">Contact Us</div>
+            <div class="header_contactUs_form_item" id="contactUs_form_message_container">
+                <div class="contactUs_form_server_massage">
+                    your comments are importent for us
+                </div>
+                <div class="contactUs_form_server_massage">
+                    you have a role in the future
+                </div>
+                <div class="contactUs_form_server_massage">
+                    all comments will be reviewed
+                </div>
+            </div>
+        </div>
+        <!-- middle of form: -->
+        <div class="body_contactUs_form">
+            <div class="contactUs_form_personal_info_container">
+                <div><label for="contactUs_form_firstName">first name</label> <input required maxlength="20" type="text"
+                        placeholder="your F name" id="contactUs_form_firstName" name="contactUs_firstName"></div>
+                <div><label for="contactUs_form_lastName">last name</label> <input required maxlength="20" type="text"
+                        placeholder="your L name" id="contactUs_form_lastName" name="contactUs_lastName"></div>
+                <div><label for="contactUs_form_phoneNumber">phone number</label> <input required type="text"
+                        placeholder="your phone number (0912 345 6789)" id="contactUs_form_phoneNumber"
+                        name="contactUs_phoneNumber"></div>
+            </div>
+            <textarea name="contactUs_comment" id="contactUs_comment_txtArea" required maxlength="150"
+                placeholder="your commnet (max 150 char)"></textarea>
+        </div>
+        <!-- end of form: -->
+        <div class="footer_contactUs_form">
+            <input type="reset" value="resest the form" class="btn button_style3"
+                style="width: unset ; padding: .4rem 1.5rem;">
+            <input type="submit" value="send my comment" class="btn button_style3"
+                style="width: unset ; padding: .4rem 1.5rem;">
+        </div>
+    </form>
+
+
+    <!-- javascript files -->
+    <script src="javaScripts/alertDisign.js"></script>
+    <script src="javaScripts/bootstrap.bundle.min.js"></script>
+    <script src="javaScripts/form.app.js"></script>
+    <!-- end body -->
+</body>
+
+</html>

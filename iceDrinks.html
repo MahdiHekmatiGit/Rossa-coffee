@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- important: sometimes, some functions read title of page and use it for an condition -->
+    <!-- important: don't cange it! -->
+    <title>iced Drinks</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/button_style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="ice_coffee_body" onload="bodyLoaded(event , false)">
+
+    <div class="menu_page_navBar">
+        <i class="bi bi-house-fill menu_page_nav_items" onclick="window.location.replace('index.html')"></i>
+        <div class="menu_page_nav_items">Iced Drinks</div>
+        <i class="bi bi-cart-fill menu_page_nav_items" onclick="openBasket(event)"></i>
+    </div>
+
+    <div class="container ice_coffee_menu_container">
+        <!-- card: -->
+        <div class="product_card">
+            <img src="images/Caramel-Cappachillo.webp" class="product_card_image">
+            <h3 class="product_card_name">here name of drink</h3>
+            <p class="product_card_description">desciption</p>
+            <p class="product_card_price">10$</p>
+            <div class="product_card_bottom_panel">
+                <button class="product_card_add_card_button" data-product-code="prCode">add to card</button>
+                <div class="pcobmc d-none">
+                    <p class="product_card_basket_massage">its on basket now</p>
+                    <i class="bi bi-trash-fill"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- basket (will add with js)-->
+    <!-- <div class="basket_contianer">
+        <h2>basket</h2>
+        <div class="basket_list">
+            <div class="basket_item">
+                <div class="basket_item_image_Container">
+                    <img src="images/[fpdl.in]_closeup-classic-fresh-espresso-served-dark-surface_1220-5376_full.jpg"
+                        alt="" class="basket_item_image image_fit">
+                </div>
+                <div class="basket_item_right_Container">
+                    <h4>product name</h4>
+                    <div class="item_div_1">
+                        <span class="basket_item_price">10$</span>
+                        <div>
+                            <i class="bi bi-bag-dash-fill c_p"></i>
+                            <span class="basket_item_count">10</span>
+                            <i class="bi bi-bag-plus-fill c_p"></i>
+                        </div>
+                    </div>
+                    <div class="item_div_2">
+                        <span class="basket_item_final_price">10$</span>
+                        <button>remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="basket_buttons_container">
+            <button class="button_style3" onclick="closeBasket()">Go out</button>
+            <button class="button_style2" onclick="order()">Order</button>
+        </div>
+    </div> -->
+
+
+    <!-- footer will add with js -->
+
+    <!-- javascript files -->
+    <script src="javaScripts/bootstrap.bundle.min.js"></script>
+
+    <script src="javaScripts/alertDisign.js"></script>
+
+    <script src="javaScripts/products.js"></script>
+
+    <script src="javaScripts/form.app.js"></script>
+
+    <script src="javaScripts/mainJs.js"></script>
+
+    <script src="javaScripts/iceDrinks.loader.js"></script>
+
+    <script src="javaScripts/basket.js"></script>
+
+    <!-- <script src="javaScripts/basket.app.js"></script> -->
+    <!-- end body -->
+</body>
+
+</html>
