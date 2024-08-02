@@ -46,10 +46,18 @@ if (document.title == 'contact us') {
         if (v.toString().length < 11 || v.toString().length > 11) {
             event.preventDefault();
             alert_disigned.showAlert("the number that enter is short!");
+            return;
         }
         if (!v.startsWith("09")) {
             event.preventDefault();
             alert_disigned.showAlert("probably the phone number that you entred is wrong!");
+            return;
+        }
+        event.preventDefault();
+        alert_disigned.showAlertGetOk("thank you, we will see your comment soon!").onclick = () => {
+            setTimeout(()=>{
+                contactUs_form.submit();
+            },300)
         }
     })
 }
@@ -57,9 +65,9 @@ if (document.title == 'contact us') {
 
 
 // order form element:
-let fn_field_order ;
-let ln_field_order ;
-let ph_field_order ;
+let fn_field_order;
+let ln_field_order;
+let ph_field_order;
 
 let order_page_field1_ready;
 let order_page_field2_ready;

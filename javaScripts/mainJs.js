@@ -89,7 +89,7 @@ function appendFinalOrderPage(bodyElement) {
             </div>
             <div class="order_page_part">
                 <label for="order_page_phone_number">phone number</label>
-                <input type="text" id="order_page_phone_number" placeholder="your Phone number" class="order_input_data" required>
+                <input type="text" id="order_page_phone_number" placeholder="your Phone number" class="order_input_data" maxlenght='11' required>
             </div>
             <div class="order_page_part">
                 <label for="order_page_phone_number">table number</label>
@@ -169,6 +169,8 @@ function closeHiddenNav() {
 // handling open or close basket:
 let is_basket_open = false;
 
+let top_navigatins = document.querySelector('.topNavigation00');
+
 // open basket handling
 function openBasket() {
     if (!is_basket_open) {
@@ -192,6 +194,10 @@ function openBasket() {
             basket_container.children[2].style.opacity = '1';
         }, 400);
         is_basket_open = true;
+
+        // hiding navigaion bar:
+        top_navigatins.style.opacity = '0' ;
+
         loadBasketList();
     } else {
         closeBasket();
@@ -206,6 +212,10 @@ function closeBasket() {
         el.style.opacity = '0';
         el.style.left = '-20px';
     }
+
+    // showing top navigation bar:
+    top_navigatins.style.opacity = '1' ;
+    // ------
 
     basket_container.style.opacity = '0';
     setTimeout(() => {
@@ -232,6 +242,11 @@ function getProductObjectByCode(code) {
             return object;
         }
     }
+    for (const object of cakes) {
+        if (object.product_code == code) {
+            return object;
+        }
+    }
 }
 
 function finalOrder() {
@@ -242,11 +257,11 @@ function finalOrder() {
         localStorage.setItem('costomerTableNumber', parseInt(document.querySelector('#table_number').value));
 
         let ad = new AlertDisingned(document.body);
-        ad.showAlert('order seccessfull');
-
-        setTimeout(() => {
-            resetAllParameters();
-        }, 2000);
+        ad.showAlertGetOk('order seccessfull').addEventListener('click' , ()=>{
+            setTimeout(() => {
+                resetAllParameters();
+            }, 300);
+        });
     }
 }
 

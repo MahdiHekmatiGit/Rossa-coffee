@@ -25,9 +25,11 @@ function loadBasketList() {
     basket_items_contianer.innerHTML = "";
 
     for (let i = 0; i < localStorage.length; i++) {
+        console.log(getProductObjectByCode('cs02'));
         const code = localStorage.key(i);
         const value = parseInt(localStorage.getItem(code));
         let firstPrice = getProductObjectByCode(code).product_price;
+        
 
         basket_items_contianer.innerHTML += `
             <div class="basket_item" data-product-code="${code}">
@@ -55,13 +57,13 @@ function loadBasketList() {
     }
 
     // write empty in basket when thre are not any order:
-    if(basket_items_contianer.children.length == 0){
+    if (basket_items_contianer.children.length == 0) {
         const emp = document.createElement('p');
         emp.style.position = 'relative';
         emp.style.top = '47%';
         emp.textContent = "Empty!";
         basket_items_contianer.appendChild(emp);
-        document.querySelector('#order_button').setAttribute('disabled' , 'disabled');
+        document.querySelector('#order_button').setAttribute('disabled', 'disabled');
     } else {
         document.querySelector('#order_button').removeAttribute('disabled');
     }
@@ -76,6 +78,8 @@ function addToBasket(e) {
         loadIceDrinkMenu();
     } else if (document.title == 'hot Drinks') {
         loadHotDrinkMenu();
+    } else if (document.title == 'cakes') {
+        loadCakesMenu();
     }
 }
 
@@ -88,7 +92,11 @@ function removeFromBasket(e) {
         loadIceDrinkMenu();
     } else if (document.title == 'hot Drinks') {
         loadHotDrinkMenu();
+    } else if (document.title == 'cakes') {
+        loadCakesMenu();
     }
+
+
     loadBasketList();
 }
 
@@ -111,6 +119,8 @@ function decreaseProductCount(e) {
             loadIceDrinkMenu();
         } else if (document.title == 'hot Drinks') {
             loadHotDrinkMenu();
+        } else if (document.title == 'cakes') {
+            loadCakesMenu();
         }
     } else {
         localStorage.setItem(code, lastVal -= 1);
@@ -120,5 +130,5 @@ function decreaseProductCount(e) {
 }
 
 function openOrderPage() {
-    
+
 }
