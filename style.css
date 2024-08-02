@@ -125,7 +125,16 @@ span {
     padding-bottom: 3rem;
 }
 
+
 /* navigation bar  */
+
+/* public navigation bars- adding transition */
+.topNavigation00{
+    transition: var(--transition-long);
+    opacity: 100;
+}
+
+
 .navBar {
     width: 100vw;
     height: 90px;
@@ -771,7 +780,7 @@ input[type="number"] {
 }
 
 
-.ice_coffee_menu_container , .hot_Drinks_menu_container{
+.ice_coffee_menu_container , .hot_Drinks_menu_container , .cakes_menu_container{
     padding-top: 90px;
     padding-bottom: 40px;
     display: flex;
