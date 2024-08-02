@@ -228,7 +228,30 @@ span {
     display: inline-block;
 }
 
+/* short Access Other Menue Container (in menue pages) */
+.shortAccessOtherMenueContainer{
+    position: fixed;
+    top: 85px;
+    width: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--clr-deep-dark-overlay);
+    backdrop-filter: blur(30px);
+    z-index: 200000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: .8rem 0 ;
+    border-radius: 1rem;
+    transition: var(--transition-short);
+    opacity: 0;
+    display: none;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+}
 
+.shortAccessOtherMenueContainer button{
+    margin: .3rem;
+}
 
 /* header */
 .index_header {

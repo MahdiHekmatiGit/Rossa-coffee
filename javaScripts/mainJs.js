@@ -5,6 +5,11 @@ function bodyLoaded(event, isIndexPage) {
     }
 }
 
+let menu_page_names = document.querySelectorAll('.menu_page_names');
+for (let menuNameElement of menu_page_names) {
+    menuNameElement.onclick = showOrHideShortAccessMenu;
+}
+
 window.addEventListener('scroll', (event) => {
     animatingIndexHeaderForScrolling();
 })
@@ -196,7 +201,7 @@ function openBasket() {
         is_basket_open = true;
 
         // hiding navigaion bar:
-        top_navigatins.style.opacity = '0' ;
+        top_navigatins.style.opacity = '0';
 
         loadBasketList();
     } else {
@@ -214,7 +219,7 @@ function closeBasket() {
     }
 
     // showing top navigation bar:
-    top_navigatins.style.opacity = '1' ;
+    top_navigatins.style.opacity = '1';
     // ------
 
     basket_container.style.opacity = '0';
@@ -257,7 +262,7 @@ function finalOrder() {
         localStorage.setItem('costomerTableNumber', parseInt(document.querySelector('#table_number').value));
 
         let ad = new AlertDisingned(document.body);
-        ad.showAlertGetOk('order seccessfull').addEventListener('click' , ()=>{
+        ad.showAlertGetOk('order seccessfull').addEventListener('click', () => {
             setTimeout(() => {
                 resetAllParameters();
             }, 300);
@@ -374,3 +379,63 @@ function resetAllParameters() {
 
     console.log(finalSendingData);
 }
+
+
+
+let isShortAccessMenuOpne = false;
+function showOrHideShortAccessMenu() {
+    let menuePageTitles = ['hot Drinks', 'iced Drinks', 'cakes'];
+    const shotAccessMenuContainer = document.querySelector('.shortAccessOtherMenueContainer');
+    if (!isShortAccessMenuOpne) {
+        // open short access menu
+        // loading content:
+        shotAccessMenuContainer.innerHTML = '';
+        let names = [];
+        for (let i = 0; i < menuePageTitles.length; i++) {
+            if (menuePageTitles[i] == document.title) {
+                continue;
+            } else {
+                names.push(menuePageTitles[i]);
+            }
+        }
+        for (let i = 0; i < names.length; i++) {
+            switch (names[i]) {
+                case menuePageTitles[0]: //hot drinks:
+                    shotAccessMenuContainer.innerHTML += `<button class="btn button_style3" onclick="window.open('hotDrinks.html' , '_self')">Hot drinks</button>`;
+                    break;
+                case menuePageTitles[1]: //iced dringks:
+                    shotAccessMenuContainer.innerHTML += `<button class="btn button_style3" onclick="window.open('iceDrinks.html' , '_self')">Iced drinks</button>`;
+                    break;
+                case menuePageTitles[2]: //cakes:
+                    shotAccessMenuContainer.innerHTML += `<button class="btn button_style3" onclick="window.open('cakes.html' , '_self')">Cakes</button>`;
+                    break;
+            }
+        }
+        // showing:
+        shotAccessMenuContainer.style.display = 'flex';
+        shotAccessMenuContainer.style.opacity = '1';
+        isShortAccessMenuOpne = true;
+    } else {
+        // close short access menu
+        shotAccessMenuContainer.style.opacity = '0';
+        setTimeout(() => {
+            shotAccessMenuContainer.style.display = 'none';
+        }, 300)
+        isShortAccessMenuOpne = false;
+    }
+}
+
+// tow event listener for when clicking or scrolling window 
+// it useful when we need to close/hide the menu that opened like pop up
+document.body.addEventListener('scroll', () => {
+    if (isShortAccessMenuOpne) {
+        showOrHideShortAccessMenu();
+    }
+})
+document.body.addEventListener('click', (e) => {
+    if (isShortAccessMenuOpne) {
+        showOrHideShortAccessMenu();
+    }
+}, true)
+
+
