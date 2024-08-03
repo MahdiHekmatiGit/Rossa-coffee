@@ -8,9 +8,11 @@ function bodyLoaded(event, isIndexPage) {
         changeThemToDark();
     } else if (localStorage.getItem('theme') == 'light') {
         changeThemToLight();
-    } else if (localStorage.getItem('theme') == null){
+    } else if (localStorage.getItem('theme') == null) {
         changeThemToDark();
     }
+
+    addDarkLightButton()
 }
 
 let menu_page_names = document.querySelectorAll('.menu_page_names');
@@ -63,13 +65,11 @@ function appenBasketElement(event) {
         </div>
     `;
 
-
     parentElement.appendChild(basketElement00);
     basket_container = document.querySelector('.basket_contianer');
     basket_items_contianer = document.querySelector('.basket_list');
     appendFooterElement(parentElement);
     appendFinalOrderPage(parentElement);
-    addDarkLightButton(parentElement);
 }
 // add footer Element with js to documetns (function called in appendBasketElement()):
 function appendFooterElement(bodyElement) {
@@ -131,10 +131,7 @@ function appendFinalOrderPage(bodyElement) {
     `;
     bodyElement.appendChild(order_page_container);
 }
-// add the button that setting light or dark button:
-function addDarkLightButton(bodyElement) {
 
-}
 
 // -----------------------------
 // animating main index header when body loaded
@@ -452,6 +449,8 @@ document.body.addEventListener('click', (e) => {
 }, true)
 
 
+
+// mehods for handling theme:
 function changeTheme() {
     if (localStorage.getItem('theme') == 'dark') {
         changeThemToLight();
@@ -463,6 +462,7 @@ function changeTheme() {
 
 function changeThemToLight() {
     let cssfiles = document.querySelectorAll('link[rel="stylesheet"]');
+    let button = document.querySelector('.darkLightButton');
     let isThemDark;
     for (let i = 0; i < cssfiles.length; i++) {
         console.log();
@@ -476,19 +476,22 @@ function changeThemToLight() {
         let lightThemTxt = `<link rel="stylesheet" href="css/lightThem.css" id="lightThemTag">`;
         headElement.innerHTML += lightThemTxt;
         localStorage.setItem('theme', 'light');
+
+        button.classList.add('bi-moon-fill');
+        button.classList.remove('bi-sun-fill');
     }
 }
 
-
 function changeThemToDark() {
-    console.log('its getting dark them');
-
     let headElement = document.querySelector('head');
     let lightThemTag = document.getElementById('lightThemTag');
+    let button = document.querySelector('.darkLightButton');
+
 
     if (lightThemTag != null) {
         headElement.removeChild(lightThemTag);
     }
-
+    button.classList.remove('bi-moon-fill');
+    button.classList.add('bi-sun-fill');
     localStorage.setItem('theme', 'dark');
 }

@@ -623,6 +623,7 @@ span {
     width: 100vw !important;
     height: 100vh !important;
     display: flex !important;
+    flex-direction: column;
     background: var(--background-url-dark);
     background-position: center;
     background-size: cover;
