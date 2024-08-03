@@ -1,0 +1,15 @@
+:root {
+    --clr-primary1: rgb(101, 92, 79);
+    --clr-light: #333;
+    --clr-dark: #eee;
+    --clr-deep-dark: #ccc;
+    --clr-deeper-dark: #fff;
+    --clr-deep-dark-overlay: hsla(0, 0%, 93%, 0.5);
+    --clr-deep-light-overlay: hsla(0, 0%, 7%, 0.8);
+
+
+    --transition-short: .3s ease 0s;
+    --transition-long: .6s ease 0s;
+
+    --background-url-dark: url('images/rossaCoffeeMainBg-light.jpg')
+}

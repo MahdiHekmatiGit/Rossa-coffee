@@ -10,7 +10,11 @@
 
     --transition-short: .3s ease 0s;
     --transition-long: .6s ease 0s;
+
+    --background-url-dark: url('images/rossaCoffeeMainBg.jpg')
+
 }
+
 
 @font-face {
     font-family: mona;
@@ -118,13 +122,17 @@ span {
 }
 
 .secound_color {
-    background: url('images/rossaCoffeeMainBg.jpg');
+    background: var(--background-url-dark);
     background-attachment: fixed;
     background-position: center;
     margin: 4rem 0 0 0;
     padding-bottom: 3rem;
 }
 
+
+.getCorrectColor{
+    color: var(--clr-dark);
+}
 
 /* navigation bar  */
 
@@ -142,7 +150,8 @@ span {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background-color: #1e1e1e6f;
+    /* background-color: #1e1e1e6f; */
+    background-color: var(--clr-deep-dark-overlay);
     backdrop-filter: blur(10px);
     position: fixed;
     z-index: 10000;
@@ -257,7 +266,7 @@ span {
 .index_header {
     width: 100vw;
     height: 100vh;
-    background: url('images/rossaCoffeeMainBg.jpg');
+    background: var(--background-url-dark);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -325,6 +334,7 @@ span {
     opacity: 0;
     transition: var(--transition-long);
     height: 82%;
+    overflow-x: hidden;
 }
 
 .basket_buttons_container {
@@ -363,7 +373,7 @@ span {
 .basket_item {
     width: 90%;
     height: 120px;
-    background-color: tan;
+    background-color: var(--clr-primary1);
     border-radius: .3rem;
     display: flex;
     padding: .3rem;
@@ -393,6 +403,7 @@ span {
 
 .basket_item_right_Container h4{
     text-wrap: nowrap;
+    overflow: hidden;
 }
 
 .item_div_1 {
@@ -587,7 +598,7 @@ span {
 .footer {
     width: 100vw;
     height: 100px;
-    background: url('images/rossaCoffeeMainBg.jpg');
+    background: var(--background-url-dark);
     display: flex;
     gap: 2rem;
     justify-content: center;
@@ -612,7 +623,7 @@ span {
     width: 100vw !important;
     height: 100vh !important;
     display: flex !important;
-    background: url('images/rossaCoffeeMainBg.jpg');
+    background: var(--background-url-dark);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -760,7 +771,7 @@ input[type="number"] {
 /* -------------------------------------- */
 /* ice cofees page: */
 .ice_coffee_body{
-    background: url('images/rossaCoffeeMainBg.jpg') !important;
+    background: var(--background-url-dark) !important;
     background-size: cover !important;
     background-attachment: fixed !important;
     background-position: center !important ;
@@ -781,7 +792,7 @@ input[type="number"] {
     align-items: center;
     gap: 1rem;
     z-index: 400000;
-    background: linear-gradient(to bottom , #151515 , #33333300);
+    background: linear-gradient(to bottom , var(--clr-deep-dark-overlay) , #33333300);
 }
 
 .menu_page_nav_items{

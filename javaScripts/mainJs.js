@@ -3,6 +3,14 @@ function bodyLoaded(event, isIndexPage) {
     if (isIndexPage) {
         animatingIndexHeader();
     }
+    // setting them first time whene loaded body
+    if (localStorage.getItem('theme') == 'dark') {
+        changeThemToDark();
+    } else if (localStorage.getItem('theme') == 'light') {
+        changeThemToLight();
+    } else if (localStorage.getItem('theme') == null){
+        changeThemToDark();
+    }
 }
 
 let menu_page_names = document.querySelectorAll('.menu_page_names');
@@ -61,6 +69,7 @@ function appenBasketElement(event) {
     basket_items_contianer = document.querySelector('.basket_list');
     appendFooterElement(parentElement);
     appendFinalOrderPage(parentElement);
+    addDarkLightButton(parentElement);
 }
 // add footer Element with js to documetns (function called in appendBasketElement()):
 function appendFooterElement(bodyElement) {
@@ -121,6 +130,10 @@ function appendFinalOrderPage(bodyElement) {
         </div>
     `;
     bodyElement.appendChild(order_page_container);
+}
+// add the button that setting light or dark button:
+function addDarkLightButton(bodyElement) {
+
 }
 
 // -----------------------------
@@ -439,3 +452,40 @@ document.body.addEventListener('click', (e) => {
 }, true)
 
 
+function changeTheme() {
+    if (localStorage.getItem('theme') == 'dark') {
+        changeThemToLight();
+    } else if (localStorage.getItem('theme') == 'light') {
+        changeThemToDark();
+    }
+
+}
+
+function changeThemToLight() {
+    let cssfiles = document.querySelectorAll('link[rel="stylesheet"]');
+    let isThemDark;
+    for (let i = 0; i < cssfiles.length; i++) {
+        console.log();
+        if (cssfiles[i].href.search('css/lightThem.css') == -1) {
+            isThemDark = true;
+        }
+    }
+
+    if (isThemDark) {
+        let headElement = document.querySelector('head');
+        let lightThemTxt = `<link rel="stylesheet" href="css/lightThem.css" id="lightThemTag">`;
+        headElement.innerHTML += lightThemTxt;
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+
+function changeThemToDark() {
+    let headElement = document.querySelector('head');
+    let lightThemTag = document.getElementById('lightThemTag');
+
+    if (lightThemTag != null) {
+        headElement.removeChild(lightThemTag);
+        localStorage.setItem('theme', 'dark');
+    }
+}
