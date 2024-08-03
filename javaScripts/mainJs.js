@@ -4,15 +4,14 @@ function bodyLoaded(event, isIndexPage) {
         animatingIndexHeader();
     }
     // setting them first time whene loaded body
-    if (localStorage.getItem('theme') == 'dark') {
+    if (sessionStorage.getItem('theme') == 'dark') {
         changeThemToDark();
-    } else if (localStorage.getItem('theme') == 'light') {
+    } else if (sessionStorage.getItem('theme') == 'light') {
         changeThemToLight();
-    } else if (localStorage.getItem('theme') == null) {
+    } else if (sessionStorage.getItem('theme') == null) {
         changeThemToDark();
     }
 
-    addDarkLightButton()
 }
 
 let menu_page_names = document.querySelectorAll('.menu_page_names');
@@ -452,9 +451,9 @@ document.body.addEventListener('click', (e) => {
 
 // mehods for handling theme:
 function changeTheme() {
-    if (localStorage.getItem('theme') == 'dark') {
+    if (sessionStorage.getItem('theme') == 'dark') {
         changeThemToLight();
-    } else if (localStorage.getItem('theme') == 'light') {
+    } else if (sessionStorage.getItem('theme') == 'light') {
         changeThemToDark();
     }
 
@@ -475,7 +474,7 @@ function changeThemToLight() {
         let headElement = document.querySelector('head');
         let lightThemTxt = `<link rel="stylesheet" href="css/lightThem.css" id="lightThemTag">`;
         headElement.innerHTML += lightThemTxt;
-        localStorage.setItem('theme', 'light');
+        sessionStorage.setItem('theme', 'light');
 
         button.classList.add('bi-moon-fill');
         button.classList.remove('bi-sun-fill');
@@ -493,5 +492,5 @@ function changeThemToDark() {
     }
     button.classList.remove('bi-moon-fill');
     button.classList.add('bi-sun-fill');
-    localStorage.setItem('theme', 'dark');
+    sessionStorage.setItem('theme', 'dark');
 }
