@@ -481,11 +481,14 @@ function changeThemToLight() {
 
 
 function changeThemToDark() {
+    console.log('its getting dark them');
+
     let headElement = document.querySelector('head');
     let lightThemTag = document.getElementById('lightThemTag');
 
     if (lightThemTag != null) {
         headElement.removeChild(lightThemTag);
-        localStorage.setItem('theme', 'dark');
     }
+
+    localStorage.setItem('theme', 'dark');
 }
